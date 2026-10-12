@@ -11,7 +11,7 @@ export default function FaqsSection() {
     },
     {
       q: "Can I get a loan if my company is not listed with the bank?",
-      a: "Yes, BMA Capital specializes in non-listed company loan approvals through specialized banking partners.",
+      a: "Yes, Emrin and Radit consultants specializes in non-listed company loan approvals through specialized banking partners.",
     },
     {
       q: "What documents are needed for business loan application?",

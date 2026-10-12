@@ -29,7 +29,7 @@ export default function AboutSection() {
         {/* Heading */}
         <div className="text-center mb-14 lg:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            About BMA Capital
+            About Emrin and Radit consultants
           </h2>
           <div className="mx-auto mt-5 h-1.5 w-40 sm:w-48 rounded-full bg-amber-500" />
         </div>
@@ -41,7 +41,7 @@ export default function AboutSection() {
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-slate-200">
               <img
                 src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=900"
-                alt="BMA Capital advisors meeting a client"
+                alt="Emrin and Radit consultants advisors meeting a client"
                 loading="lazy"
                 className="w-full h-full object-cover"
               />
@@ -62,10 +62,10 @@ export default function AboutSection() {
               in the UAE
             </h3>
             <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
-              BMA Capital is a premier financial brokerage and consultancy firm
-              based in Dubai. We connect individuals, entrepreneurs and
-              corporate enterprises with customized banking products and capital
-              solutions.
+              Emrin and Radit consultants is a premier financial brokerage and
+              consultancy firm based in Dubai. We connect individuals,
+              entrepreneurs and corporate enterprises with customized banking
+              products and capital solutions.
             </p>
             <p className="text-slate-600 leading-relaxed text-base sm:text-lg">
               With strong relationships across major local and international UAE
@@ -110,7 +110,7 @@ export default function AboutSection() {
         {/* Stats band */}
         <div className="mt-24 bg-slate-900 rounded-3xl px-6 py-10 sm:px-10 shadow-2xl">
           <p className="text-center text-white text-xl font-bold mb-8">
-            Why clients trust BMA Capital
+            Why clients trust Emrin and Radit consultants
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-8 lg:divide-x lg:divide-slate-700">
             {stats.map((s) => (

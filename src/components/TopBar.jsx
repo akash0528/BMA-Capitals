@@ -12,7 +12,7 @@ import {
 
 // ✏️ Apne asli details yahan daalo
 const CONTACT = {
-  email: "info@bmacapital.ae",
+  email: "info@EmrinandRaditconsultants.ae",
   landline: "+971 4 3494393",
   mobile: "+971 50 000 0000",
   whatsapp: "+971 50 000 0000",
@@ -172,7 +172,7 @@ export default function TopBar() {
         <div className="max-w-7xl mx-auto flex justify-between items-center gap-4">
           {/* Welcome: sirf tablet/desktop pe */}
           <span className="hidden md:inline text-slate-200">
-            Welcome to BMA Capital
+            Welcome to Emrin and Radit consultants
           </span>
 
           <div className="flex w-full md:w-auto items-center justify-between md:justify-end gap-4 md:gap-6 font-semibold">

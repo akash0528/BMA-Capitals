@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
-import Logo from "../assets/bbma.jpeg";
+import Logo from "../assets/EmrinLogo.jpeg";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -17,11 +17,11 @@ export default function Footer() {
             <Link to="/" className="flex items-center space-x-3">
               <img
                 src={Logo}
-                alt="BMA Capital Logo"
+                alt="Emrin and Radit consultants Logo"
                 className="h-12 w-auto object-contain " // Inverted to look clean on dark footer background
               />
               <span className="text-lg font-bold text-white tracking-wider">
-                BMA CAPITAL
+                Emrin and Radit consultants
               </span>
             </Link>
             <p className="text-slate-400 leading-relaxed">
@@ -125,9 +125,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-sm mb-3">Disclaimer</h4>
             <p className="text-slate-500 leading-relaxed">
-              BMA Capital acts as an independent financial consultant and
-              broker. Final loan terms, interest rates, and approvals remain
-              subject to partner bank policies and AECB credit checks.
+              Emrin and Radit consultants acts as an independent financial
+              consultant and broker. Final loan terms, interest rates, and
+              approvals remain subject to partner bank policies and AECB credit
+              checks.
             </p>
           </div>
         </div>
@@ -135,7 +136,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-slate-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p>
-            © {new Date().getFullYear()} BMA Capital Financial Consultancy. All
+            © {new Date().getFullYear()} Emrin and Radit consultants . All
             rights reserved.
           </p>
           <button

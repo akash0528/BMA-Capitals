@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, Building2 } from "lucide-react";
-import Logo from "../assets/bbma.jpeg";
+import Logo from "../assets/EmrinLogo.jpeg";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -22,12 +22,12 @@ export default function Navbar() {
           <Link to="/" className="flex items-center space-x-3">
             <img
               src={Logo}
-              alt="BMA Capital Logo"
+              alt="Emrin and Radit consultants Logo"
               className="h-16 sm:h-20 w-auto object-contain mix-blend-multiply contrast-125"
             />
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight text-slate-900 leading-none">
-                BMA CAPITAL
+                Emrin and Radit consultants
               </span>
               <span className="text-[10px] font-medium tracking-widest text-amber-600 uppercase mt-1">
                 Financial Consultancy

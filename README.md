@@ -1,11 +1,11 @@
-# BMA Capital - React & Tailwind Web Application
+#Emrin and Radit consultants - React & Tailwind Web Application
 
-A full-featured modular React application inspired by Bma Capital (Bmacapital.ae), built for UAE corporate and personal financial consultancy services.
+A full-featured modular React application inspired by Emrin and Radit consultants (Emrin and Radit consultants.ae), built for UAE corporate and personal financial consultancy services.
 
 ## Project Structure
 
 ```
-Bma-capital-web/
+Emrin and Radit consultants-web/
 ├── package.json
 ├── vite.config.js
 ├── tailwind.config.js

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import axios from "axios";
 
 const EMPTY = {
   name: "",
@@ -27,8 +28,8 @@ const info = [
   {
     Icon: Mail,
     title: "Email us",
-    text: "Info@bmacapital.ae",
-    href: "mailto:Info@bmacapital.ae",
+    text: "Info@EmrinandRaditconsultants.ae",
+    href: "mailto:Info@EmrinandRaditconsultants.ae",
   },
   {
     Icon: Clock,
@@ -40,18 +41,58 @@ const info = [
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState(EMPTY);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const set = (key) => (e) =>
-    setFormData({ ...formData, [key]: e.target.value });
+    setFormData((prev) => ({
+      ...prev,
+      [key]: e.target.value,
+    }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: yahan apni API / email service call karo
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData(EMPTY);
-    }, 4000);
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await axios.post(
+        `${
+          import.meta.env.VITE_API_URL || "http://localhost:5000"
+        }/api/contact`,
+        {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          serviceType: formData.service,
+          loanAmount: "",
+          message: formData.message,
+        },
+      );
+
+      if (response.data.success) {
+        setSubmitted(true);
+        setFormData(EMPTY);
+      } else {
+        setError(
+          response.data.message || "Enquiry was only partially processed.",
+        );
+      }
+    } catch (err) {
+      const status = err.response?.status;
+
+      if (status === 429) {
+        setError("Too many enquiries. Please try again after 15 minutes.");
+      } else {
+        setError(
+          err.response?.data?.message ||
+            "Unable to submit your enquiry. Please try again.",
+        );
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -106,7 +147,7 @@ export default function ContactSection() {
           {/* Map */}
           <div className="relative min-h-[300px] lg:min-h-full bg-slate-200 order-2 lg:order-1">
             <iframe
-              title="BMA Capital Dubai Office Map"
+              title="Emrin and Radit consultants Dubai Office Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.178652317924!2d55.27218777610051!3d25.180373231700685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f682f483c7a31%3A0xc34b3f07a4e60df0!2sBusiness%20Bay%20-%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
               className="absolute inset-0 w-full h-full"
               style={{ border: 0 }}
@@ -189,13 +230,21 @@ export default function ContactSection() {
                   onChange={set("message")}
                   className={`${inputCls} resize-none`}
                 />
+
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 bg-black hover:bg-amber-600 text-white font-bold tracking-wider text-sm px-10 py-4 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-500/40"
+                  disabled={loading}
+                  className="inline-flex items-center justify-center gap-2 bg-black hover:bg-amber-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold tracking-wider text-sm px-10 py-4 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-500/40"
                 >
                   <Send size={16} />
-                  <span>SUBMIT INQUIRY</span>
+                  <span>{loading ? "SUBMITTING..." : "SUBMIT INQUIRY"}</span>
                 </button>
+
+                {error && (
+                  <p role="alert" className="text-red-600 text-sm">
+                    {error}
+                  </p>
+                )}
               </form>
             )}
           </div>
